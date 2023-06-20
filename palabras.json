@@ -1,0 +1,17 @@
+{
+  "ciudades":[
+    "cali", "bogota", "medellin", "barranquilla", "cartagena", "cucuta", "bucaramanga", "pereira", "santa marta", "ibague", "villavicencio", "valledupar", "armenia", "manizales", "pasto"
+    ],
+  "animales":[
+    "llama", "alpaca", "cóndor", "jaguar", "anaconda", "puma", "ocelote", "armadillo", "caimán", "flamenco"
+    ],
+  "paises":[
+    "argentina", "bolivia", "brasil", "chile", "colombia", "ecuador", "paraguay", "peru", "uruguay", "venezuela"    
+    ],
+  "frutas":[
+    "manzana", "banano", "cereza", "durazno", "frambuesa"
+  ],
+  "deportes":[
+    "futbol", "beisbol", "tenis", "golf", "boxeo"
+  ]
+}
