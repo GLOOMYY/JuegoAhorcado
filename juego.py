@@ -1,38 +1,19 @@
 from random import choice, shuffle
 import json
 
-def lecturaArchivo():
-  """
-  Lee el archivo json y lo guarda en un diccionario
+def lecturaArchivo(nombre_archivo):
+    """
+    Lee el archivo JSON y lo guarda en un diccionario
 
-  :returns:
-    diccionario(dict): Diccionario con las palabras y categorias
-  """
-  with open("palabras.json", "r") as f:
-    diccionario = json.load(f)
-  return diccionario
+    :args:
+      nombre_archivo(str): Nombre del archivo JSON
+    :return: 
+      diccionario(dict): Diccionario con las palabras y categorías
+    """
 
-def posibilidadAhorcado():
-  """
-  Lee el archivo json y lo guarda en un diccionario
-
-  :returns:
-    diccionario(dict): Diccionario con las palabras y categorias
-  """
-  with open("ahorcado.json", "r") as f:
-    diccionario = json.load(f)
-  return diccionario
-
-def posibilidadGuillotina():
-  """
-  Lee el archivo json y lo guarda en un diccionario
-
-  :returns:
-    diccionario(dict): Diccionario con las palabras y categorias
-  """
-  with open("guillotina.json", "r") as f:
-    diccionario = json.load(f)
-  return diccionario
+    with open(nombre_archivo, "r") as f:
+      diccionario = json.load(f)
+    return diccionario
  
 def categorias(x):
   """
@@ -118,7 +99,7 @@ def ahorcado(palabra, categoria):
   
   abecedario = ['a','b','c','d','e','f','g','h','i', 'j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
   shuffle(abecedario)
-  posibilidades = posibilidadAhorcado()
+  posibilidades = lecturaArchivo("ahorcado.json")
   print("Tienes 7 intentos")
   intentos=0
   errores = []
@@ -176,7 +157,7 @@ def guillotina(palabra, categoria):
   """
   abecedario = ['a','b','c','d','e','f','g','h','i', 'j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
   shuffle(abecedario)
-  posibilidades = posibilidadGuillotina()
+  posibilidades = lecturaArchivo("guillotina.json")
   print("Tienes 7 intentos")
   intentos=0
   errores = []
@@ -219,7 +200,7 @@ def main():
   
   nombre = bienvenida()
   tipo  = eleccion(nombre)
-  palabra, categoria = categorias(lecturaArchivo())
+  palabra, categoria = categorias(lecturaArchivo("palabras.json"))
   print("Ahora te enseñaremos la interfaz de juego")
   if (tipo==1):
     print("Esta es la interfaz del ahorcado")
@@ -232,5 +213,5 @@ while True:
   main()
   print("¿Deseas volver a jugar?\n1 para no\nCualquier numero para si")
   x = int(input())
-  if (x==2): 
+  if (x==1): 
     break
